@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export async function apiFetch<T>(
     url: string,
     {
@@ -78,7 +79,7 @@ export async function apiFetch<T>(
         let errorData;
         try {
             errorData = await response.json();
-        } catch (parseError) {
+        } catch {
             // Si la réponse n'est pas du JSON valide
             errorData = { 
                 message: response.statusText || `HTTP ${response.status}`,

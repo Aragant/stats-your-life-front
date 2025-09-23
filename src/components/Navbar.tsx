@@ -3,11 +3,11 @@ import { NavLink } from "react-router";
 function Navbar() {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `px-4 py-2 rounded transition-colors ${
-      isActive ? "bg-blue-600 text-white" : "text-gray-700 hover:bg-gray-200"
+      isActive ? "bg-primary-3 text-white" : "hover:bg-primary"
     }`;
 
   return (
-    <nav className="bg-gray-100 shadow-md p-4 flex items-center justify-center gap-4">
+    <nav className="bg-primary-2 shadow-md p-4 flex items-center justify-center gap-4 font-bold">
       <NavLink to="/task" className={linkClass}>
         Task
       </NavLink>

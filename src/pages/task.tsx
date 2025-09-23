@@ -1,7 +1,9 @@
+import TaskList from "../components/taskList";
+
 export default function Task() {
     return (
-        <div className="flex flex-1 justify-center items-center">
-            <h1 className="text-2xl font-bold">Tasks</h1>
+        <div className=" bg-primary flex flex-col flex-1 justify-center items-center">
+            <TaskList />
         </div>
     );
 }

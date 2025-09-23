@@ -26,9 +26,10 @@ export function useAuth() {
         apiFetch<Account>("/users/me")
             .then(setAccount)
             .catch(() => setAccount(null));
-    }, []);
+    }, [setAccount]);
 
     const login = useCallback((username: string, password: string) => {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         apiFetch<any>("/auth/cookie/login", {
             method: 'POST',
             formData: {
@@ -42,13 +43,13 @@ export function useAuth() {
         })
             .then(() => authenticate())
             .catch(() => setAccount(null));
-    }, []);
+    }, [authenticate, setAccount]);
 
     const logout = useCallback(() => {
         apiFetch<Account>("/auth/cookie/logout", { method: "POST" })
             .then(setAccount)
             .catch(() => setAccount(null));
-    }, []);
+    }, [setAccount]);
 
     return {
         account,
