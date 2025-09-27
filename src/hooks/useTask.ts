@@ -3,7 +3,7 @@ import type { Task } from "../schemas/task";
 import { apiFetch } from "../services/api";
 
 export function useTask() {
-    const [task, setTask] = useState<Task[]>([])
+    const [tasks, setTask] = useState<Task[]>([])
 
     const getTasks = () => {
         apiFetch<Task[]>("/tasks")
@@ -29,7 +29,7 @@ export function useTask() {
     }
 
     return {
-        task,
+        tasks,
         getTasks,
         validateTask,
         createTask
