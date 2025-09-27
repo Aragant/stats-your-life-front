@@ -33,12 +33,12 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 p-6">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8">
-                <h1 className="text-2xl font-semibold mb-2 text-gray-800">
+        <div className="min-h-screen flex items-center justify-center bg-primary p-6">
+            <div className="w-full max-w-md bg-primary-2 rounded-2xl shadow-lg p-8">
+                <h1 className="text-2xl font-semibold mb-2 text-font">
                     Se connecter
                 </h1>
-                <p className="text-sm text-gray-500 mb-6">
+                <p className="text-sm text-gray-300 mb-6">
                     Entrez votre email et mot de passe pour continuer.
                 </p>
 
@@ -46,7 +46,7 @@ export default function Login() {
                     <div>
                         <label
                             htmlFor="email"
-                            className="block text-sm font-medium text-gray-700 mb-1"
+                            className="block text-sm font-medium text-font mb-1"
                         >
                             Email
                         </label>
@@ -58,7 +58,7 @@ export default function Login() {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                             aria-invalid={!isValidEmail(email) && email !== ""}
-                            className="block w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                            className="block w-full px-4 py-2 rounded-xl border border-primary-3 bg-primary text-font focus:outline-none focus:ring-2 focus:ring-primary-3 placeholder:text-gray-400"
                             placeholder="votre@exemple.com"
                         />
                     </div>
@@ -66,7 +66,7 @@ export default function Login() {
                     <div>
                         <label
                             htmlFor="password"
-                            className="block text-sm font-medium text-gray-700 mb-1"
+                            className="block text-sm font-medium text-font mb-1"
                         >
                             Mot de passe
                         </label>
@@ -78,7 +78,7 @@ export default function Login() {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 required
-                                className="block w-full px-4 py-2 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-indigo-300 pr-12"
+                                className="block w-full px-4 py-2 rounded-xl border border-primary-3 bg-primary text-font focus:outline-none focus:ring-2 focus:ring-primary-3 pr-12 placeholder:text-gray-400"
                                 placeholder="••••••••"
                                 aria-describedby="toggle-password"
                             />
@@ -87,7 +87,7 @@ export default function Login() {
                                 type="button"
                                 id="toggle-password"
                                 onClick={() => setShowPassword((s) => !s)}
-                                className="absolute right-2 top-1/2 -translate-y-1/2 text-sm px-3 py-1 rounded-lg bg-gray-100 hover:bg-gray-200"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 text-sm px-3 py-1 rounded-lg bg-primary-3 hover:bg-primary-2 text-font transition-colors"
                                 aria-label={
                                     showPassword
                                         ? "Masquer le mot de passe"
@@ -103,22 +103,22 @@ export default function Login() {
                         <div></div>
                         <a
                             href="#"
-                            className="text-sm text-indigo-600 hover:underline"
+                            className="text-sm text-primary-3 hover:text-font transition-colors hover:underline"
                         >
                             Mot de passe oublié ?
                         </a>
                     </div>
 
-                    {error && <p className="text-sm text-red-600">{error}</p>}
+                    {error && <p className="text-sm text-red-400">{error}</p>}
 
                     <div>
                         <button
                             type="submit"
                             disabled={!canSubmit}
-                            className={`w-full inline-flex justify-center items-center gap-2 px-4 py-2 rounded-2xl text-white font-medium shadow-md transition disabled:opacity-60 ${
+                            className={`w-full inline-flex justify-center items-center gap-2 px-4 py-2 rounded-2xl text-font font-medium shadow-md transition disabled:opacity-60 ${
                                 canSubmit
-                                    ? "bg-indigo-600 hover:bg-indigo-700"
-                                    : "bg-indigo-400"
+                                    ? "bg-primary-3 hover:bg-primary-2"
+                                    : "bg-primary-2 opacity-50"
                             }`}
                         >
                             {submitting ? "Connexion..." : "Se connecter"}
@@ -126,9 +126,12 @@ export default function Login() {
                     </div>
                 </form>
 
-                <div className="mt-6 text-center text-sm text-gray-600">
+                <div className="mt-6 text-center text-sm text-gray-300">
                     Pas encore de compte ?{" "}
-                    <a href="#" className="text-indigo-600 hover:underline">
+                    <a
+                        href="#"
+                        className="text-primary-3 hover:text-font transition-colors hover:underline"
+                    >
                         S'inscrire
                     </a>
                 </div>

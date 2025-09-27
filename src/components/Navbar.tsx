@@ -7,7 +7,7 @@ function Navbar() {
     }`;
 
   return (
-    <nav className="bg-primary-2 shadow-md p-4 flex items-center justify-center gap-4 font-bold">
+    <nav className="bg-primary-2 shadow-md p-4 flex items-center justify-center gap-4 font-bold fixed bottom-0 w-full">
       <NavLink to="/task" className={linkClass}>
         Task
       </NavLink>

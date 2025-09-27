@@ -19,9 +19,19 @@ export function useTask() {
             .catch(() => setTask([]))
     }
 
+    const createTask = (task: { name: string, deadline: string, priority: number }) => {
+        apiFetch<Task>("/tasks", {
+            method: 'POST',
+            json: task
+        })
+            .then(getTasks)
+            .catch(() => setTask([]))
+    }
+
     return {
         task,
         getTasks,
         validateTask,
+        createTask
     }
 }

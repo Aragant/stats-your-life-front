@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useTask } from "../hooks/useTask";
+import { useNavigate } from "react-router";
 
 export default function TaskList() {
+    const navigate = useNavigate();
     const { task, getTasks, validateTask } = useTask();
 
     useEffect(() => {
@@ -53,15 +55,24 @@ export default function TaskList() {
     };
 
     return (
-        <div className="min-h-screen min-w-screen p-8 bg-gradient-to-br from-[#240046] to-[#5a189a] ">
+        <div className="min-h-screen min-w-screen p-8 bg-gradient-to-br from-[#240046] to-[#5a189a] mb-16">
             <div className="max-w-4xl mx-auto">
-                <div className="mb-8">
-                    <h1 className="text-4xl font-bold text-[#ffffff] mb-2">
-                        Mes Tâches
-                    </h1>
-                    <p className="text-[#ffffff]/80">
-                        {task?.length || 0} tâche(s) au total
-                    </p>
+                <div className="mb-8 flex items-center justify-between gap-4">
+                    <div className="">
+                        <h1 className="text-4xl font-bold text-[#ffffff] mb-2">
+                            Mes Tâches
+                        </h1>
+                        <p className="text-[#ffffff]/80">
+                            {task?.length || 0} tâche(s) au total
+                        </p>
+                    </div>
+
+                    <button
+                        onClick={() => navigate("/createTask")}
+                        className="bg-primary-3 text-white px-4 py-3 md:px-6 md:py-3 rounded-lg font-bold hover:bg-primary-2 active:bg-primary transition-colors shadow-md inline-block text-center"
+                    >
+                        New task
+                    </button>
                 </div>
 
                 {!task || task.length === 0 ? (
