@@ -1,11 +1,12 @@
 import { createBrowserRouter, redirect } from "react-router"; // ✅ ICI
 
 import Login from "./pages/login";
-import Task from "./pages/task";
-import Routine from "./pages/routine";
+import Task from "./pages/task/task";
+import Routine from "./pages/Routine";
 import Session from "./pages/session";
 import RootLayout from "./pages/rootLayout";
-import CreateTask from "./pages/createTask";
+import CreateTask from "./pages/task/taskCreate";
+import RoutineCreate from "./pages/routineCreate";
 
 export const router = createBrowserRouter([
     {
@@ -35,6 +36,10 @@ export const router = createBrowserRouter([
             {
                 path: "/createTask",
                 Component: CreateTask,
+            },
+            {
+                path: "/routineCreate",
+                Component: RoutineCreate,
             },
         ],
     },

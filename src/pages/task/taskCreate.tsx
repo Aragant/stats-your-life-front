@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { useTask } from "../hooks/useTask";
+import { useTask } from "../../hooks/useTask";
 
 export default function CreateTask() {
     const navigate = useNavigate();
@@ -13,10 +13,10 @@ export default function CreateTask() {
     const [error, setError] = useState("");
 
     const priorityOptions = [
-        { value: 1, label: "Urgent", color: "bg-red-500" },
-        { value: 2, label: "Élevée", color: "bg-orange-500" },
-        { value: 3, label: "Moyenne", color: "bg-yellow-500" },
-        { value: 4, label: "Faible", color: "bg-green-500" },
+        { value: 1, label: "Urgent", color: "bg-urgent" },
+        { value: 2, label: "Élevée", color: "bg-elevated" },
+        { value: 3, label: "Moyenne", color: "bg-medium" },
+        { value: 4, label: "Faible", color: "bg-low" },
     ];
 
     const handleSubmit = async (e: { preventDefault: () => void; }) => {
@@ -36,7 +36,7 @@ export default function CreateTask() {
         setIsSubmitting(true);
         
         try {
-            await createTask({
+            createTask({
                 name: name.trim(),
                 deadline: new Date(deadline).toISOString(),
                 priority: priority
@@ -56,8 +56,10 @@ export default function CreateTask() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-primary to-primary-3 p-4 pb-20">
+            
             <div className="max-w-md mx-auto">
                 {/* Header */}
+                
                 <div className="flex items-center justify-between mb-8 pt-4">
                     <button
                         onClick={() => navigate("/task")}

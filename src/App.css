@@ -5,6 +5,20 @@
     --color-primary-2: #3c096c;
     --color-primary-3: #5a189a;
 
+    --color-urgent: oklch(63.7% 0.237 25.331);
+    --color-elevated: oklch(70.5% 0.213 47.604);
+    --color-medium: oklch(79.5% 0.184 86.047);
+    --color-low: oklch(72.3% 0.219 149.579);
+    --color-neutral: oklch(62.3% 0.214 259.815);
+    --color-none: oklch(55.1% 0.027 264.364);
+    
+    --color-finished: oklch(79.2% 0.209 151.711);
+    --color-deadeline: oklch(70.4% 0.191 22.216);
 
     --color-font: #ffffff;
+    --color-borderColor: #ffffff;
+
+
+    --color-white: #ffffff;
+    --color-black: #000000;
 }
